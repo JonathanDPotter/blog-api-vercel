@@ -1,0 +1,3 @@
+.css-target::after {
+  content: "CSS works!";
+}
