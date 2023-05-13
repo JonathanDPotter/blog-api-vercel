@@ -1,0 +1,42 @@
+{
+  "user": {
+    "ROOT": "/api/user",
+    "GET": {
+      "/": "returns all user records",
+      "/:_id": "returns user record with specific _id"
+    },
+    "POST": {
+      "/register": "creates a new user from {username, password}",
+      "/login": "returns validation token from {username, password}",
+      "/validate": "returns a 200 status if the token is provided and still valid"
+    },
+    "DELETE": {
+      "/:_id": "deletes user with specific _id, requires auth as Bearer token"
+    }
+  },
+  "post": {
+    "ROOT": "/api/post",
+    "GET": {
+      "/": "returns all post records",
+      "/:_id": "returns post record with specific _id",
+      "/user/:_id": "returns all posts with specific author"
+    },
+    "POST": {
+      "/": "creates a new post record when supplied with an object that has   userId: UserDocument['_id']; title: string; body: string; published: boolean; and requires auth as Bearer token"
+    },
+    "PUT": {
+      "/:_id": "updates post record with specific _id, requires auth as Bearer token"
+    },
+    "DELETE": {
+      "/:_id": "deletes post with specific _id, requires auth as Bearer token"
+    }
+  },
+  "index": {
+    "root": "/",
+    "GET": {
+      "/": "returns the homepage",
+      "/routes": "returns this object",
+      "/healthcheck": "returns a 200 status"
+    }
+  }
+}
